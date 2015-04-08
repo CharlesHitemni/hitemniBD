@@ -1,6 +1,7 @@
 package com.hitemni.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
 
 
@@ -36,6 +37,17 @@ public class UtilisateurPersonnalite implements Serializable {
 
 	public UtilisateurPersonnalite() {
 	}
+	
+	
+
+	public UtilisateurPersonnalite(String entrepriseActuelle, int nbrAnneeExp, String specialite,String typeDeTravaille) {
+		this.entrepriseActuelle = entrepriseActuelle;
+		this.nbrAnneeExp = nbrAnneeExp;
+		this.specialite = specialite;
+		this.typeDeTravaille = typeDeTravaille;
+	}
+
+
 
 	public int getIdUtilisateurPersonnalite() {
 		return this.idUtilisateurPersonnalite;
