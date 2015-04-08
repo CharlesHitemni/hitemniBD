@@ -5,10 +5,9 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinColumns;
+import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToOne;
@@ -74,7 +73,11 @@ public class Utilisateur implements Serializable {
 	private UtilisateurPersonnalite utilisateurPersonnalite;
 
 	//bi-directional many-to-many association to Evenement
-	@ManyToMany(mappedBy="utilisateur", fetch=FetchType.EAGER)
+    @ManyToMany 
+    @JoinTable(name="inscription_evenement", 
+          joinColumns=@JoinColumn(name="id_utilisateur_fk"),
+          inverseJoinColumns=@JoinColumn(name="id_evenement_fk"))
+	//@ManyToMany(mappedBy="utilisateur", fetch=FetchType.EAGER)
 	private List<Evenement> evenements;
 
 	public Utilisateur() {

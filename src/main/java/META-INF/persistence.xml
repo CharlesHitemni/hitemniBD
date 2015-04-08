@@ -16,7 +16,7 @@
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="objectdb://localhost:8889/hitemni" />
 			<property name="javax.persistence.jdbc.user" value="root" />
-			<property name="javax.persistence.jdbc.password" value="root" />
+			<property name="javax.persistence.jdbc.password" value="" />
 		</properties>
 	</persistence-unit>
 </persistence>

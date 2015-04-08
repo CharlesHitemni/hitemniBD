@@ -1,7 +1,9 @@
 package com.hitemni.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
 
@@ -32,8 +34,10 @@ public class Cv implements Serializable {
 	private Utilisateur utilisateur;
 
 	//bi-directional many-to-many association to Entreprise
-	@ManyToMany(fetch=FetchType.EAGER)
-	@JoinColumn(name="id_CV", nullable=false, insertable=false, updatable=false)
+	@ManyToMany 
+	@JoinTable(name="entreprise_cv", 
+	     joinColumns=@JoinColumn(name="CV_id_CV"),
+	     inverseJoinColumns=@JoinColumn(name="entreprise_id_entreprise"))
 	private List<Entreprise> entreprises;
 
 	//bi-directional many-to-one association to Technologie
