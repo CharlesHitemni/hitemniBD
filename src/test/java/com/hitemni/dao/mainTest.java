@@ -16,13 +16,12 @@ public class mainTest {
 
 	public static void main(String[] args) throws Exception {
 		context =new ClassPathXmlApplicationContext("spring/application-config.xml");
-		utilisateurI= (UtilisateurI) context.getBean("utilisateurI");
+		utilisateurI=  context.getBean(UtilisateurI.class);
 		Utilisateur utilisateur = utilisateurI.getUtilisateurById(1);
 		assertNotNull(utilisateur);
 		assertEquals(1, utilisateur.getIdUtilisateur());
-		System.out.println(utilisateur);
+		System.out.println(utilisateur.getIdUtilisateur());
 		context.close();
-
 	}
 
 }

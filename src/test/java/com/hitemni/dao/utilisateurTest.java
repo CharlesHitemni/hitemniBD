@@ -46,5 +46,25 @@ public class utilisateurTest {
 		assertEquals(1, utilisateur.getIdUtilisateur());
 		System.out.println(utilisateur);
 	}
+	
+	@Test
+	public void testCreerUtilisateur() {
+		Utilisateur utilisateur = new Utilisateur(); 
+		utilisateur.setAge("25");
+		utilisateur.setNom("sanat");
+		utilisateur.setPrenom("navid");
+		utilisateur.setAdressePro("cou");
+		utilisateur.setMail("navid...");
+		utilisateur.setMotDePasse("dq");
+		utilisateur.setLatitude("latitude");
+		utilisateur.setLongitude("lng");
+		utilisateur.setPromo("df");
+		utilisateur.setPhoto("");
+		Byte fo = 1;
+		utilisateur.setSexe(fo);
+		utilisateur.setTelephone("cqq");
+		utilisateurI.creerUtilisateur(utilisateur);
+		//assertNotNull();
+	}
 
 }
