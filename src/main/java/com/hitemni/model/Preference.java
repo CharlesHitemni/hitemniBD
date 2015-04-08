@@ -50,6 +50,17 @@ public class Preference implements Serializable {
 
 	@Column(name="telephone_preference", nullable=false)
 	private byte telephonePreference;
+	
+	@Column(name="position_utilisateur", nullable=false)
+	private byte position_utilisateur;
+	
+	public byte getPosition_utilisateur() {
+		return position_utilisateur;
+	}
+
+	public void setPosition_utilisateur(byte position_utilisateur) {
+		this.position_utilisateur = position_utilisateur;
+	}
 
 	//bi-directional one-to-one association to Utilisateur
 	@OneToOne(mappedBy="preference")

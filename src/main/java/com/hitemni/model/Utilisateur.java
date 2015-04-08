@@ -79,7 +79,29 @@ public class Utilisateur implements Serializable {
           inverseJoinColumns=@JoinColumn(name="id_evenement_fk"))
 	//@ManyToMany(mappedBy="utilisateur", fetch=FetchType.EAGER)
 	private List<Evenement> evenements;
+    
+    @Column(length=40)
+	private String latitude;
+    
+    public String getLatitude() {
+		return latitude;
+	}
 
+	public void setLatitude(String latitude) {
+		this.latitude = latitude;
+	}
+
+	public String getLongitude() {
+		return longitude;
+	}
+
+	public void setLongitude(String longitude) {
+		this.longitude = longitude;
+	}
+
+	@Column(length=40)
+	private String longitude;
+    
 	public Utilisateur() {
 	}
 
