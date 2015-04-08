@@ -59,17 +59,17 @@ public class Utilisateur implements Serializable {
 
 	//bi-directional one-to-one association to Cv
 	@OneToOne
-	@JoinColumn(name="CV_fk", nullable=false)
+	@JoinColumn(name="CV_fk", nullable=true)
 	private Cv cv;
 
 	//bi-directional one-to-one association to Preference
 	@OneToOne
-	@JoinColumn(name="preference_fk", nullable=false)
+	@JoinColumn(name="preference_fk", nullable=true)
 	private Preference preference;
 
 	//bi-directional one-to-one association to UtilisateurPersonnalite
 	@OneToOne
-	@JoinColumn(name="utilisateur_personnalite_fk", nullable=false)
+	@JoinColumn(name="utilisateur_personnalite_fk", nullable=true)
 	private UtilisateurPersonnalite utilisateurPersonnalite;
 
 	//bi-directional many-to-many association to Evenement
