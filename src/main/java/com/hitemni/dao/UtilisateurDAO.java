@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hitemni.model.Utilisateur;
 
-@Service("utilisateurI")
+@Service
 @Transactional
 public class UtilisateurDAO implements UtilisateurI{
 
@@ -20,37 +20,44 @@ public class UtilisateurDAO implements UtilisateurI{
 	
 	
 	@Override
+	@Transactional
 	public void creerUtilisateur(Utilisateur u) {
 		sessionFactory.getCurrentSession().saveOrUpdate(u);
 	}
 
 	@Override
+	@Transactional
 	public void suprimerUtilisateur(Utilisateur utilisateur) {
 		sessionFactory.getCurrentSession().delete(utilisateur);
 	}
 
 	@Override
+	@Transactional
 	public void sauvegarderUtilisateur(Utilisateur utilisateur) {
 		sessionFactory.getCurrentSession().saveOrUpdate(utilisateur);
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
+	@Transactional
 	public List<Utilisateur> listeUtilisateur() {		
 		return sessionFactory.getCurrentSession().createCriteria(Utilisateur.class).list();
 	}
 
 	@Override
+	@Transactional
 	public Utilisateur getUtilisateurById(int idUtilisateur) {
 		return (Utilisateur) sessionFactory.getCurrentSession().get(Utilisateur.class, idUtilisateur);
 	}
 
 	@Override
+	@Transactional
 	public Utilisateur getUtilisateurByMail(String mail) {
 		return (Utilisateur) sessionFactory.getCurrentSession().createCriteria(Utilisateur.class).add(Restrictions.eq("mail",mail)).uniqueResult();
 	}
 
 	@Override
+	@Transactional
 	public List<String> getPositionUtilisateur(int idUtilisateur) {
 		List<String> lngLat = new ArrayList<String>();
 		Utilisateur utilisateur = getUtilisateurById(idUtilisateur);
