@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.hitemni.model.Utilisateur;
 
-@Service("UtilisateurI")
+@Service("utilisateurI")
 @Transactional
 public class UtilisateurDAO implements UtilisateurI{
 
