@@ -1,7 +1,9 @@
 package com.hitemni.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.List;
 
 
@@ -34,6 +36,12 @@ public class Entreprise implements Serializable {
 	private List<Mission> missions;
 
 	public Entreprise() {
+	}
+
+	public Entreprise(String adresse, String nom) {
+		super();
+		this.adresse = adresse;
+		this.nom = nom;
 	}
 
 	public int getIdEntreprise() {

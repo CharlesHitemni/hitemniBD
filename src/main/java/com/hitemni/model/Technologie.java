@@ -1,6 +1,8 @@
 package com.hitemni.model;
 
 import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.*;
 
 
@@ -22,11 +24,17 @@ public class Technologie implements Serializable {
 	private String nom;
 
 	//bi-directional many-to-one association to Cv
-	@ManyToOne
-	@JoinColumn(name="id_technologie", nullable=false, insertable=false, updatable=false)
-	private Cv cv;
+    @ManyToMany 
+    @JoinTable(name="cv_technologie", 
+          joinColumns=@JoinColumn(name="technologie_fk"),
+          inverseJoinColumns=@JoinColumn(name="CV_fk"))
+	private List<Cv> cv;
 
 	public Technologie() {
+	}
+
+	public Technologie(String nom) {
+		this.nom = nom;
 	}
 
 	public int getIdTechnologie() {
@@ -45,11 +53,11 @@ public class Technologie implements Serializable {
 		this.nom = nom;
 	}
 
-	public Cv getCv() {
+	public List<Cv> getCv() {
 		return this.cv;
 	}
 
-	public void setCv(Cv cv) {
+	public void setCv(List<Cv> cv) {
 		this.cv = cv;
 	}
 

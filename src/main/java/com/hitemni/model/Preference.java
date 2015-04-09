@@ -19,46 +19,46 @@ public class Preference implements Serializable {
 	private int idPreference;
 
 	@Column(name="adresse_pro_preference", nullable=false)
-	private byte adresseProPreference;
+	private boolean adresseProPreference;
 
 	@Column(name="age_preference", nullable=false)
-	private byte agePreference;
+	private boolean agePreference;
 
 	@Column(name="cv_preference", nullable=false)
-	private byte cvPreference;
+	private boolean cvPreference;
 
 	@Column(name="mail_preference", nullable=false)
-	private byte mailPreference;
+	private boolean mailPreference;
 
 	@Column(name="nom_preference", nullable=false)
-	private byte nomPreference;
+	private boolean nomPreference;
 
 	@Column(name="personnalite_preference", nullable=false)
-	private byte personnalitePreference;
+	private boolean personnalitePreference;
 
 	@Column(name="photo_preference", nullable=false)
-	private byte photoPreference;
+	private boolean photoPreference;
 
 	@Column(name="prenom_preference", nullable=false)
-	private byte prenomPreference;
+	private boolean prenomPreference;
 
 	@Column(name="promo_preference", nullable=false)
-	private byte promoPreference;
+	private boolean promoPreference;
 
 	@Column(name="sexe_preference", nullable=false)
-	private byte sexePreference;
+	private boolean sexePreference;
 
 	@Column(name="telephone_preference", nullable=false)
-	private byte telephonePreference;
+	private boolean telephonePreference;
 	
 	@Column(name="position_utilisateur", nullable=false)
-	private byte position_utilisateur;
+	private boolean position_utilisateur;
 	
-	public byte getPosition_utilisateur() {
+	public boolean getPosition_utilisateur() {
 		return position_utilisateur;
 	}
 
-	public void setPosition_utilisateur(byte position_utilisateur) {
+	public void setPosition_utilisateur(boolean position_utilisateur) {
 		this.position_utilisateur = position_utilisateur;
 	}
 
@@ -73,95 +73,115 @@ public class Preference implements Serializable {
 		return this.idPreference;
 	}
 
+	public Preference(boolean adresseProPreference, boolean agePreference,
+			boolean cvPreference, boolean mailPreference,
+			boolean nomPreference, boolean personnalitePreference,
+			boolean photoPreference, boolean prenomPreference,
+			boolean promoPreference, boolean sexePreference,
+			boolean telephonePreference, boolean position_utilisateur) {
+		this.adresseProPreference = adresseProPreference;
+		this.agePreference = agePreference;
+		this.cvPreference = cvPreference;
+		this.mailPreference = mailPreference;
+		this.nomPreference = nomPreference;
+		this.personnalitePreference = personnalitePreference;
+		this.photoPreference = photoPreference;
+		this.prenomPreference = prenomPreference;
+		this.promoPreference = promoPreference;
+		this.sexePreference = sexePreference;
+		this.telephonePreference = telephonePreference;
+		this.position_utilisateur = position_utilisateur;
+	}
+
 	public void setIdPreference(int idPreference) {
 		this.idPreference = idPreference;
 	}
 
-	public byte getAdresseProPreference() {
+	public boolean getAdresseProPreference() {
 		return this.adresseProPreference;
 	}
 
-	public void setAdresseProPreference(byte adresseProPreference) {
+	public void setAdresseProPreference(boolean adresseProPreference) {
 		this.adresseProPreference = adresseProPreference;
 	}
 
-	public byte getAgePreference() {
+	public boolean getAgePreference() {
 		return this.agePreference;
 	}
 
-	public void setAgePreference(byte agePreference) {
+	public void setAgePreference(boolean agePreference) {
 		this.agePreference = agePreference;
 	}
 
-	public byte getCvPreference() {
+	public boolean getCvPreference() {
 		return this.cvPreference;
 	}
 
-	public void setCvPreference(byte cvPreference) {
+	public void setCvPreference(boolean cvPreference) {
 		this.cvPreference = cvPreference;
 	}
 
-	public byte getMailPreference() {
+	public boolean getMailPreference() {
 		return this.mailPreference;
 	}
 
-	public void setMailPreference(byte mailPreference) {
+	public void setMailPreference(boolean mailPreference) {
 		this.mailPreference = mailPreference;
 	}
 
-	public byte getNomPreference() {
+	public boolean getNomPreference() {
 		return this.nomPreference;
 	}
 
-	public void setNomPreference(byte nomPreference) {
+	public void setNomPreference(boolean nomPreference) {
 		this.nomPreference = nomPreference;
 	}
 
-	public byte getPersonnalitePreference() {
+	public boolean getPersonnalitePreference() {
 		return this.personnalitePreference;
 	}
 
-	public void setPersonnalitePreference(byte personnalitePreference) {
+	public void setPersonnalitePreference(boolean personnalitePreference) {
 		this.personnalitePreference = personnalitePreference;
 	}
 
-	public byte getPhotoPreference() {
+	public boolean getPhotoPreference() {
 		return this.photoPreference;
 	}
 
-	public void setPhotoPreference(byte photoPreference) {
+	public void setPhotoPreference(boolean photoPreference) {
 		this.photoPreference = photoPreference;
 	}
 
-	public byte getPrenomPreference() {
+	public boolean getPrenomPreference() {
 		return this.prenomPreference;
 	}
 
-	public void setPrenomPreference(byte prenomPreference) {
+	public void setPrenomPreference(boolean prenomPreference) {
 		this.prenomPreference = prenomPreference;
 	}
 
-	public byte getPromoPreference() {
+	public boolean getPromoPreference() {
 		return this.promoPreference;
 	}
 
-	public void setPromoPreference(byte promoPreference) {
+	public void setPromoPreference(boolean promoPreference) {
 		this.promoPreference = promoPreference;
 	}
 
-	public byte getSexePreference() {
+	public boolean getSexePreference() {
 		return this.sexePreference;
 	}
 
-	public void setSexePreference(byte sexePreference) {
+	public void setSexePreference(boolean sexePreference) {
 		this.sexePreference = sexePreference;
 	}
 
-	public byte getTelephonePreference() {
+	public boolean getTelephonePreference() {
 		return this.telephonePreference;
 	}
 
-	public void setTelephonePreference(byte telephonePreference) {
+	public void setTelephonePreference(boolean telephonePreference) {
 		this.telephonePreference = telephonePreference;
 	}
 

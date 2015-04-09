@@ -1,7 +1,9 @@
 package com.hitemni.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 
 
@@ -35,10 +37,18 @@ public class Mission implements Serializable {
 
 	//bi-directional many-to-one association to Entreprise
 	@ManyToOne
-	@JoinColumn(name="entreprise_cv_fk", nullable=false)
+	@JoinColumn(name="entreprise_cv_fk", nullable=true)
 	private Entreprise entreprise;
 
 	public Mission() {
+	}
+
+	public Mission(Date dateDebut, Date dateFin, String descriptif, String titre) {
+		super();
+		this.dateDebut = dateDebut;
+		this.dateFin = dateFin;
+		this.descriptif = descriptif;
+		this.titre = titre;
 	}
 
 	public int getIdProjet() {

@@ -1,7 +1,9 @@
 package com.hitemni.model;
 
 import java.io.Serializable;
+
 import javax.persistence.*;
+
 import java.util.Date;
 import java.util.List;
 
@@ -38,6 +40,13 @@ public class Evenement implements Serializable {
 	private List<Utilisateur> utilisateurs;
 
 	public Evenement() {
+	}
+
+	public Evenement(String adresse, Date date, String descriptif, String titre) {
+		this.adresse = adresse;
+		this.date = date;
+		this.descriptif = descriptif;
+		this.titre = titre;
 	}
 
 	public int getIdEvenement() {

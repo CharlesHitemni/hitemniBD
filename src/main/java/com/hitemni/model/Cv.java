@@ -40,11 +40,20 @@ public class Cv implements Serializable {
 	     inverseJoinColumns=@JoinColumn(name="entreprise_id_entreprise"))
 	private List<Entreprise> entreprises;
 
-	//bi-directional many-to-one association to Technologie
-	@OneToMany(mappedBy="cv", fetch=FetchType.EAGER)
+	//bi-directional many-to-many association to Evenement
+    @ManyToMany 
+    @JoinTable(name="cv_technologie", 
+          joinColumns=@JoinColumn(name="CV_fk"),
+          inverseJoinColumns=@JoinColumn(name="technologie_fk"))
 	private List<Technologie> technologies;
 
 	public Cv() {
+	}
+
+	public Cv(Date date, String intitule) {
+		super();
+		this.date = date;
+		this.intitule = intitule;
 	}
 
 	public int getId_CV() {
@@ -93,20 +102,6 @@ public class Cv implements Serializable {
 
 	public void setTechnologies(List<Technologie> technologies) {
 		this.technologies = technologies;
-	}
-
-	public Technologie addTechnology(Technologie technology) {
-		getTechnologies().add(technology);
-		technology.setCv(this);
-
-		return technology;
-	}
-
-	public Technologie removeTechnology(Technologie technology) {
-		getTechnologies().remove(technology);
-		technology.setCv(null);
-
-		return technology;
 	}
 
 }
