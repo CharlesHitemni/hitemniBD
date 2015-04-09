@@ -27,10 +27,6 @@ public class Entreprise implements Serializable {
 	@Column(nullable=false, length=45)
 	private String nom;
 
-	//bi-directional many-to-many association to Cv
-	@ManyToMany(mappedBy="entreprises", fetch=FetchType.EAGER)
-	private List<Cv> cvs;
-
 	//bi-directional many-to-one association to Mission
 	@OneToMany(mappedBy="entreprise", fetch=FetchType.EAGER)
 	private List<Mission> missions;
@@ -66,14 +62,6 @@ public class Entreprise implements Serializable {
 
 	public void setNom(String nom) {
 		this.nom = nom;
-	}
-
-	public List<Cv> getCvs() {
-		return this.cvs;
-	}
-
-	public void setCvs(List<Cv> cvs) {
-		this.cvs = cvs;
 	}
 
 	public List<Mission> getMissions() {

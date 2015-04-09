@@ -43,8 +43,7 @@ public class utilisateurTest {
 		utilisateur.setLongitude("lng");
 		utilisateur.setPromo("df");
 		utilisateur.setPhoto("");
-		Byte fo = 1;
-		utilisateur.setSexe(fo);
+		utilisateur.setSexe(true);
 		utilisateur.setTelephone("cqq");
 		utilisateurI.creerUtilisateur(utilisateur);
 		assertNotNull(utilisateur);

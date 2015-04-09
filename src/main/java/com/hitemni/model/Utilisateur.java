@@ -23,7 +23,7 @@ import javax.persistence.Table;
 @NamedQuery(name="Utilisateur.findAll", query="SELECT u FROM Utilisateur u")
 public class Utilisateur implements Serializable {
 	private static final long serialVersionUID = 1L;
-
+	
 	@Id
 	@Column(name="id_utilisateur", unique=true, nullable=false)
 	private int idUtilisateur;
@@ -52,11 +52,11 @@ public class Utilisateur implements Serializable {
 	@Column(nullable=false, length=45)
 	private String promo;
 
-	private byte sexe;
+	private boolean sexe;
 
 	@Column(length=40)
 	private String telephone;
-
+	
 	//bi-directional one-to-one association to Cv
 	@OneToOne
 	@JoinColumn(name="CV_fk", nullable=true)
@@ -83,7 +83,34 @@ public class Utilisateur implements Serializable {
     @Column(length=40)
 	private String latitude;
     
-    public String getLatitude() {
+	public Utilisateur() {
+	}
+    
+    public Utilisateur(String adressePro, String age, String mail,
+			String motDePasse, String nom, String photo, String prenom,
+			String promo, boolean sexe, String telephone, Cv cv,
+			Preference preference,
+			UtilisateurPersonnalite utilisateurPersonnalite,
+			List<Evenement> evenements, String latitude, String longitude){
+		this.adressePro = adressePro;
+		this.age = age;
+		this.mail = mail;
+		this.motDePasse = motDePasse;
+		this.nom = nom;
+		this.photo = photo;
+		this.prenom = prenom;
+		this.promo = promo;
+		this.sexe = sexe;
+		this.telephone = telephone;
+		this.cv = cv;
+		this.preference = preference;
+		this.utilisateurPersonnalite = utilisateurPersonnalite;
+		this.evenements = evenements;
+		this.latitude = latitude;
+		this.longitude = longitude;
+	}
+
+	public String getLatitude() {
 		return latitude;
 	}
 
@@ -101,9 +128,6 @@ public class Utilisateur implements Serializable {
 
 	@Column(length=40)
 	private String longitude;
-    
-	public Utilisateur() {
-	}
 
 	public int getIdUtilisateur() {
 		return this.idUtilisateur;
@@ -177,11 +201,11 @@ public class Utilisateur implements Serializable {
 		this.promo = promo;
 	}
 
-	public byte getSexe() {
+	public boolean getSexe() {
 		return this.sexe;
 	}
 
-	public void setSexe(byte sexe) {
+	public void setSexe(boolean sexe) {
 		this.sexe = sexe;
 	}
 
