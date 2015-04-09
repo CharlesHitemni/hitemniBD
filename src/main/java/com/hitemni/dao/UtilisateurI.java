@@ -15,6 +15,6 @@ public interface UtilisateurI {
 	public Utilisateur getUtilisateurById(int idUtilisateur);
 	public Utilisateur getUtilisateurByMail(String mail);
 	public List<String> getPositionUtilisateur(int idUtilisateur);
-	
+	public Utilisateur getUtilisateurInscrit(String mail,String mot_de_passe);
 }
 

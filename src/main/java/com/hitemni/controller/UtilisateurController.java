@@ -57,10 +57,11 @@ public class UtilisateurController {
 	@RequestMapping(value = "/api/utilisateur/listeUtilisateur", method = RequestMethod.GET)
 	public @ResponseBody String listeUtilisateur(ModelMap model)
 			throws JSONException {
+		
+		
 		JSONArray utilisateurArray = new JSONArray();
-		UtilisateurDAO utillisateurDAO = new UtilisateurDAO();
-
-		for (Utilisateur utilisateur : utillisateurDAO.listeUtilisateur()) {
+		
+		for (Utilisateur utilisateur : utilisateurI.listeUtilisateur()) {
 			JSONObject utilisateurJSON = new JSONObject();
 
 			utilisateurJSON.put("id_utilisateur",
@@ -81,7 +82,7 @@ public class UtilisateurController {
 			utilisateurJSON.put("preference", utilisateur.getPreference());
 			utilisateurJSON.put("utilisateur_personalite",
 					utilisateur.getUtilisateurPersonnalite());
-			utilisateurJSON.put("evenement", utilisateur.getEvenements());
+			//utilisateurJSON.put("evenement", utilisateur.getEvenements());
 
 			utilisateurArray.put(utilisateurJSON);
 		}
@@ -93,8 +94,32 @@ public class UtilisateurController {
 			@RequestParam(required = true, value = "password") String password,
 			ModelMap model)
 			throws JSONException {
+		
+		Utilisateur utilisateur = utilisateurI.getUtilisateurInscrit(email, password);
+		JSONObject utilisateurJSON = new JSONObject();
+		
+		if(utilisateur != null )
+		{
+			utilisateurJSON.put("id_utilisateur", utilisateur.getIdUtilisateur());
+			utilisateurJSON.put("nom", utilisateur.getNom());
+			utilisateurJSON.put("prenom", utilisateur.getPrenom());
+			utilisateurJSON.put("mail", utilisateur.getMail());
+			utilisateurJSON.put("mot_de_passe", utilisateur.getMotDePasse());
+			utilisateurJSON.put("age", utilisateur.getAge());
+			utilisateurJSON.put("sexe", utilisateur.getSexe());
+			utilisateurJSON.put("promo", utilisateur.getPromo());
+			utilisateurJSON.put("telephone", utilisateur.getTelephone());
+			utilisateurJSON.put("adressePro", utilisateur.getAdressePro());
+			utilisateurJSON.put("photo", utilisateur.getPhoto());
+			utilisateurJSON.put("latitude", utilisateur.getLatitude());
+			utilisateurJSON.put("longitude", utilisateur.getLongitude());
+			utilisateurJSON.put("cv", utilisateur.getCv());
+			utilisateurJSON.put("preference", utilisateur.getPreference());
+			utilisateurJSON.put("utilisateur_personalite",
+					utilisateur.getUtilisateurPersonnalite());
+		}
 		//User user = utilisateurDAO.authentication(email, password);
-		return "";
+		return utilisateurJSON.toString();
 	}
 	
 }
