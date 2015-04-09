@@ -14,7 +14,7 @@
 		<class>com.hitemni.model.Utilisateur</class>
 		<class>com.hitemni.model.UtilisateurPersonnalite</class>
 		<properties>
-			<property name="javax.persistence.jdbc.url" value="objectdb://localhost:8889/hitemni" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/hitemni" />
 			<property name="javax.persistence.jdbc.user" value="root" />
 			<property name="javax.persistence.jdbc.password" value="" />
 		</properties>

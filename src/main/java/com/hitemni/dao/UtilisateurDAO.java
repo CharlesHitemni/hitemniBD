@@ -68,21 +68,20 @@ public class UtilisateurDAO implements UtilisateurI{
 
 	@Override
 	public Utilisateur getUtilisateurInscrit(String mail, String mot_de_passe) {
-		List<Utilisateur> utilisateurList = listeUtilisateur();
+		Utilisateur utilisateur = getUtilisateurByMail(mail);
+		
 		boolean loginCheck = false;
 		boolean passwordCheck = false;
-		
-		for(Utilisateur utilisateur : utilisateurList)
+		if(utilisateur != null)
 		{
-			if(utilisateur.getMail().equals(mail))
-			{
-				loginCheck = true;
-				if(utilisateur.getMotDePasse().equals(mot_de_passe))
-					passwordCheck=true;
-			}
-			if(loginCheck==true && passwordCheck==true)
-				return utilisateur;
+			loginCheck = true;
+			if(utilisateur.getMotDePasse().equals(mot_de_passe))
+				passwordCheck=true;
 		}
+		
+		if(loginCheck && passwordCheck)
+			return utilisateur;
+		
 		return null;
 	}
 
